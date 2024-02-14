@@ -19,10 +19,10 @@
     .body{
         background-color: #f8f8f8;
     }
-    .id
+    #we
     {
         background-color: #ffff;
-        box-shadow: 0 2px 4px #f8f8f8;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 </style>
 </head>
@@ -32,6 +32,11 @@
     <div class="container mt-3" id="we">
 
 <table id="example" class="display" style="width:100%">
+    <select id="genderFilter">
+        <option value="">All</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
     <thead>
         <tr>
             <th>Name</th>
@@ -45,7 +50,7 @@
     <tbody>
         <tr>
             <td>Tiger Nixon</td>
-            <td>System Architect</td>
+            <td>Gender</td>
             <td>Edinburgh</td>
             <td>61</td>
             <td>2011-04-25</td>
@@ -53,7 +58,7 @@
         </tr>
         <tr>
             <td>Garrett Winters</td>
-            <td>Accountant</td>
+            <td>male</td>
             <td>Tokyo</td>
             <td>63</td>
             <td>2011-07-25</td>
@@ -61,7 +66,7 @@
         </tr>
         <tr>
             <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
+            <td>female</td>
             <td>San Francisco</td>
             <td>66</td>
             <td>2009-01-12</td>
@@ -518,6 +523,16 @@
 $(document).ready(function(){
 $("#example").DataTable();
 });
+
+$(document).ready(function(){
+      var table = $('#example').DataTable();
+
+      $('#genderFilter').on('change', function () {
+        var selectedGender = $(this).val();
+
+        table.column(1).search(selectedGender).draw();
+      });
+    });
 
     </script>
 </div>
