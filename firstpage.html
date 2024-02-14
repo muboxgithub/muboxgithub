@@ -29,14 +29,10 @@
 <body>
 
 
-    <div class="container mt-3" id="we">
+    <div class="container mt-4 p-2" id="we">
 
 <table id="example" class="display" style="width:100%">
-    <select id="genderFilter">
-        <option value="">All</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
+    
     <thead>
         <tr>
             <th>Name</th>
@@ -524,15 +520,7 @@ $(document).ready(function(){
 $("#example").DataTable();
 });
 
-$(document).ready(function(){
-      var table = $('#example').DataTable();
 
-      $('#genderFilter').on('change', function () {
-        var selectedGender = $(this).val();
-
-        table.column(1).search(selectedGender).draw();
-      });
-    });
 
     </script>
 </div>
