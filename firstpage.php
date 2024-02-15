@@ -22,7 +22,7 @@ $result=$conn->query($sql);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seletion domain site</title>
+  <title>Seletion domain Site</title>
  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -66,7 +66,7 @@ margin-bottom:10px;
     <div class="row">
 
 
-    <div class="col">
+    <div class="col-sm-4">
     <div class="form-group">
     <select id="gender" class="form-control">
 <option value="">Select by gender</option>
@@ -81,7 +81,7 @@ margin-bottom:10px;
 
 
 
-<div class="col">
+<div class="col-sm-4">
 <div class="form-group">
 
     <select id="region" class="form-control">
@@ -100,10 +100,10 @@ margin-bottom:10px;
 </div>
 
 
-<div class="col">
+<div class="col-sm-4">
 <div class="form-group">
 <select id="grade" class="form-control">
-    <option value="">Select by grade</option>
+    <option value="">Select by Grade</option>
     <option value="12">G12</option>
     <option value="11">G11</option>
     <option value="10">G10</option>
@@ -114,15 +114,35 @@ margin-bottom:10px;
 </div>
 </div>
 
+
+
+
 </div>
 
-<button id="randomselect" class="btn btn-info">Selected Random 10</button>
+<div class="container align-left mt-2">
+    
+
+<div class="mb-3 mt-3">
+
+
+<input id="randomselect" type="input" class="form-control" placeholder="input numbers to select randomly">
+
+</div>
+
+
+</div>
+
 
 
 
 
 <div class="container mt-2 mb-1 bg-white text-center text-info">
 <p id="selectedcount"></p>
+</div>
+
+
+<div class="container mt-2 text-success text-center">
+<p id="Totalsum"></p>
 </div>
 <table id="example" class="display" style="width:100%">
     
@@ -140,10 +160,11 @@ margin-bottom:10px;
 
 
             <th>Name</th>
-            <th>Username</th>
+          
             <th>Email</th>
             <th>Phone</th>
             <th>Grade </th>
+            <th>Cost</th>
             <th>School</th>
             <th>Gender</th>
             <th>Region</th>
@@ -162,11 +183,36 @@ if($result->num_rows >0){
     ?>
             <tr>
             <td><?php echo $row['fullname'] ?></td>
-            <td><?php echo $row['username'] ?></td>
+        
             <td><?php  echo $row['email'] ?></td>
             <td><?php  echo $row['phone'] ?></td>
 
             <td><?php   echo $row['grade']  ?></td>
+
+            <?php
+
+            $cost=$row['grade'];
+if($row['grade']== 'G12')
+{
+$cost=10;
+}
+else if($row['grade']== 'G11'){
+$cost =11;
+}
+
+else if($row['grade']== 'G10'){
+$cost=30;
+}
+
+
+else{
+    $cost =45;
+}
+?>
+
+            <td><?php echo $cost ?></td>
+
+
             <td><?php  echo $row['school'] ?></td>
             <td><?php  echo $row['gender'] ?></td>
             <td><?php  echo $row['region'] ?></td>
@@ -188,10 +234,11 @@ if($result->num_rows >0){
     <tfoot>
         <tr>
         <th>Name</th>
-            <th>Username</th>
+         
             <th>Email</th>
             <th>Phone</th>
             <th>Grade </th>
+            <th>Cost</th>
             <th>School</th>
             <th>Gender</th>
             <th>Region</th>
@@ -267,6 +314,26 @@ $(document).ready(function()
 
     $('#selectedcount').text('Total Selected: ' + SelectedRow.length);
 
+
+
+
+var totalCost = 0;
+
+for (var i= 0;  i < SelectedRow.length; i++)
+{
+    var rowIndex=SelectedRow[i];
+
+    var rowData=table.row(rowIndex).data();
+
+    var cost=parseFloat(rowData[4]);
+
+
+    totalCost += cost;
+}
+
+$('#Totalsum').text('TotalSelectedCost is:' + totalCost);
+
+
     if ($(this).hasClass('selectedroo')) {
       // Perform actions with selected row
     } else {
@@ -287,7 +354,7 @@ table.$('tr.selectedroo').removeClass('selectedroo');
 var visiblerow=table.rows({ search: 'applied', page: 'current' }).nodes();
 
 
-var SelectedRow=$(visiblerow).slice(0,2);
+var SelectedRow=$(visiblerow).slice(0,10);
 
 $(SelectedRow).addClass('selectedroo');
 
