@@ -37,6 +37,23 @@ $result=$conn->query($sql);
 
 <style>
 
+
+@media screen and (min-width:992px){
+  .row{
+  width:800px;
+  white-space: nowrap;
+  
+}
+}
+
+
+
+
+
+
+
+
+
   @media screen and (max-width:768px)
 
   {
@@ -64,7 +81,11 @@ $result=$conn->query($sql);
 
 }
 
-
+.form-select{
+  width:100px;
+  white-space: nowrap;
+  
+}
 }
 
 body
@@ -110,6 +131,9 @@ margin-bottom:10px;
 box-shadow:0 0 4px rgba(0,0,0,0.2);
 background-color:white;
   }
+  .sea:active{
+   
+  }
 </style>
 </head>
 <body>
@@ -119,20 +143,9 @@ background-color:white;
    
     <div class="row">
 
-    <div class="col mt-3">
-    <div class="form-group">
-    <select id="school" class="form-select">
-<option value="">School</option>
-<option value="School1">School1</option>
-<option value="school2">school2</option>
+   
 
-
-    </select>
-
-</div>
-</div>
-
-    <div class="col mt-3">
+    <div class="col  mt-3">
     <div class="form-group">
     <select id="gender" class="form-select">
 <option value="">Gender</option>
@@ -147,7 +160,7 @@ background-color:white;
 
 
 
-<div class="col mt-3">
+<div class="col  mt-3">
 <div class="form-group">
 
     <select id="firstselector" class="form-select">
@@ -176,7 +189,7 @@ background-color:white;
 </div>
 
 
-<div class="col mt-3">
+<div class="col  mt-3">
 <div class="form-group">
 <select id="secondselctor" class="form-select">
     <option value="">Zone</option>
@@ -189,19 +202,32 @@ background-color:white;
 
 
 
+<div class="col  mt-3">
+    <div class="form-group">
+      <form>
+      
+
+  <input type="text" name="search" class="form-control" id="serchschool" placeholder="School Search">
+</form>
+    </select>
+
+</div>
+</div>
+
+
 </div>
 
 <div  class="container align-left mt-2">
     
 
-<div class="d-flex mt-3">
+<div class="d-flex mt-1">
 
 <div class="pl-3">
-<input id="userinput" type="input" class="form-control" placeholder="input numbers">
+  <form>
+<input id="userinput" type="input" class="form-control" placeholder="Input numbers">
+</form>
 </div>
-<div class="container pl-3 ml-3">
-<button  id="randomselect" type="button" class="btn btn-outline-primary">Select Random</button>
-</div>
+
 
 </div>
 
@@ -317,141 +343,62 @@ else{
 
 </div>
 
-
 <div class="modal" id="Mymodal">
-
-
-<div class="modal-dialog">
-
-
-<div class="modal-content">
-
-
-
-
-
-<div class="modal-header">
-
-<h4 class="modal-title">
-Notification
-</h4>
-
-<button type="button" class="btn-close" data-bs-dismiss="modal">
-
-
-</button>
-
-
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Notification</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container border mb-3">
+          <p id="summerytext"></p>
+        </div>
+        <form >
+          <div class="form-group mt-2">
+            <label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-user"></i>&nbsp;</span>User Name</label>
+            <input type="text" placeholder="Enter your name" name="username" class="form-control mt-2" id="username" required>
+          </div>
+          <div class="form-group mt-2">
+            <label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-envelope"></i>&nbsp;</span>Email</label>
+            <input type="email" id="emailvalid" name="email" placeholder="Enter your email" class="form-control mt-2">
+          </div>
+          <div class="form-group mt-2">
+            <label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-address-card-o"></i>&nbsp;</span>Address</label>
+            <input type="text" placeholder="Enter your address" name="address" class="form-control">
+          </div>
+          <div class="form-group mt-2">
+            <label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-phone"></i>&nbsp;</span>Phone</label>
+            <input type="number" id="phonecount" name="phone" placeholder="Enter your phone number" class="form-control">
+          </div>
+          <div class="form-group mt-3 mb-3">
+            <button id="submitid" onclick="oncha()" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal-body">
-
-<div class="container border mb-3">
-<p id="summerytext"></p>
+<div class="modal" id="secondmodal" style="display:none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Choice Payment opiton</h4>
+        <button type="button" class="btn-close" aria-label="Close" onclick="closemodel()" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>safasjhernt5yh</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
-<form action="">
-
-<div class="form-group mt-2">
-  <label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-user"></i>&nbsp;</span>User Name</label>
-<input type="text" placeholder="Enter your name" class="form-control mt-2" id="username" required>
-
-</div>
-<div class="form-group mt-2">
-<label for="inputName"><span style="color:#9932cc;font-size:20px;" required><i class="fa fa-envelope"></i>&nbsp;</span>Email</label>
-<input type="email" id="emailvalid" placeholder="Enter your email" class="form-control mt-2">
-</div>
-<div class="form-group mt-2">
-<label for="inputName"><span style="color:#9932cc;font-size:20px;"><i class="fa fa-address-card-o"></i>&nbsp;</span>Address</label>
-
-<input type="text" placeholder="Enter your address" class="form-control">
-<div>
-
-<div class="form-group mt-2">
-<label for="inputName"><span style="color:#9932cc;font-size:20px;" required><i class="fa fa-phone"></i>&nbsp;</span>Phone</label>
-
-<input type="number" id="phonecount" placeholder="Enter your phone number" class="form-control">
-</div>
-<div class="form-group mt-3 mb-3">
-<button  data-bs-toggle="modal" data-bs-target="#modaljj" class="btn btn-primary">Submit</button>
-</div>
-</form>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="modal-footer">
-
-<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-</div>
-
-
-
-
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="modal" id="modaljj">
-
-<div class="modal-dialog">
-
-
-
-<div class="modal-content">
-
-
-<div class="modal-header">
-
-<h4 class="modal-title">hh</h4>
-<button type="button" class="btn-close" data-bs-dismiss="modal">
-</div>
-
-<div class="modal-content">
-
-<p>safas</p>
-</div>
-
-
-<div class="modal-footer">
-<button type="button"  class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
 
 
 
@@ -476,16 +423,35 @@ $("#example").DataTable();
 
 
 
+
+function oncha(){
+
+
+  document.getElementById('Mymodal').style.display='none';
+  document.getElementById('secondmodal').style.display='block';
+}
+
+
+function closemodel()
+{
+  document.getElementById('secondmodal').style.display='none';
+  document.getElementById('Mymodal').style.display='block';
+}
+
+
 $(document).ready(function()
 {
+ 
 
 
     //to select by gender
 
             var table= $('#example').DataTable();
-            var SelectedRow = [];
+            var selectedCount = 0; 
+            var selectedRows = [];
             var totalCost=0;
-
+     
+            
             $('#gender').on('change',function()
             {
 
@@ -540,28 +506,88 @@ $(document).ready(function()
 
             //for changing color when selcted row
 
-            $('#example tbody').on('click', 'tr', function() {
+      
+
+
+  $('#userinput').on('input',function(){
+
+
+    table.$('tr.selectedroo').removeClass('selectedroo');
+
+
+    var userInput= parseInt($('#userinput').val());
+
+
+    var visiblerow=table.rows({search:'applied', page:'current'}).nodes();
+
+selectedRows=$(visiblerow).slice(0,userInput);
+
+$(selectedRows).addClass('selectedroo');
+
+selectedCount = selectedRows.length;
+
+$('#selectedcount').text('Total numeber of selected count is:'+ selectedCount);
+
+
+var totalCost=0;
+var fixedcost=500;
+
+$(selectedRows).each(function(){
+
+
+
+
+totalCost +=fixedcost;
+});
+
+$('#Totalsum').text('Total amount of random select cost is: ' + totalCost);
+
+
+
+  });
+  
+
+
+  $('#example tbody').on('click', 'tr', function() {
     $(this).toggleClass('selectedroo');
-    var datarow = table.row(this).data();
+    //var datarow = table.row(this).data();
     var rowindex = table.row(this).index();
 
-    if (SelectedRow.includes(rowindex)) {
-      var index = SelectedRow.indexOf(rowindex);
-      SelectedRow.splice(index, 1);
-    } else {
-      SelectedRow.push(rowindex);
-    }
+    
 
-    $('#selectedcount').text('Total Selected: ' + SelectedRow.length);
+var index=-1;
+for(var i=0; i< selectedRows.length; i++){
+if(selectedRows[i]===rowindex){
+
+  index=i;
+  break;
+}
+}
+
+if(index !== -1){
+  selectedRows.splice(index,1);
+  $(this).removeClass('selectedroo');
+}
+else{
+  selectedRows.push(rowindex);
+}
+
+
+
+
+   
+
+selectedCount = selectedRows.length; //to updare the selected count
+    $('#selectedcount').text('Total Selected: ' + selectedCount );
 
 
 
 
 var totalCost = 0;
 
-for (var i= 0;  i < SelectedRow.length; i++)
+for (var i= 0;  i < selectedRows.length; i++)
 {
-    var rowIndex=SelectedRow[i];
+    var rowIndex=selectedRows[i];
 
     var rowData=table.row(rowIndex).data();
 
@@ -582,14 +608,14 @@ $('#Totalsum').text('TotalSelectedCost is:' + totalCost);
   });
 
 $('#submitbutton').on('click',function(){
-var SelectedCount=SelectedRow.length;
+  selectedCount =selectedRows.length;
 
 var totalCost=0;
 
-for(var i= 0; i < SelectedRow.length; i++){
+for(var i= 0; i < selectedRows.length; i++){
 
 
-var rowIndex=SelectedRow[i];
+var rowIndex=selectedRows[i];
 
 var rowData=table.row(rowIndex).data();
 
@@ -606,12 +632,9 @@ document.getElementById('summerytext').innerHTML=summeryText;
 
 var modal=new bootstrap.Modal(document.getElementById('Mymodal'));
 
-if(totalCost > 0){
+
 modal.show();
-}
-else{
-  window.alert('please select to submit');
-}
+
 
 modal._element.addEventListener('hidden.bs.modal',function()
 {
@@ -620,48 +643,6 @@ modal._element.addEventListener('hidden.bs.modal',function()
 });
 
 });
-
-
-            
-
-
-  $('#randomselect').on('click',function(){
-
-
-    table.$('tr.selectedroo').removeClass('selectedroo');
-
-
-    var userInput= parseInt($('#userinput').val());
-
-
-    var visiblerow=table.rows({search:'applied', page:'current'}).nodes();
-
-var selectedRow=$(visiblerow).slice(0,userInput);
-
-$(selectedRow).addClass('selectedroo');
-
-
-var selectedCount=$(table.rows('.selectedroo').nodes()).length;
-
-$('#selectedcount').text('Total numeber of selected count is:'+ selectedCount);
-
-
-var totalCost=0;
-var fixedcost=500;
-
-$(selectedRow).each(function(){
-
-
-
-
-totalCost +=fixedcost;
-});
-
-$('#Totalsum').text('Total amount of random select cost is: ' + totalCost);
-
-
-
-  });
 
 
 
@@ -679,7 +660,7 @@ $('#Totalsum').text('Total amount of random select cost is: ' + totalCost);
 
 
 
-    var summeryText= 'Total Number of Selected: ' + SelectedCount +'&nbsp; Student' +'<br> Total cost is: ' + totalCost + 'Birr';
+    var summeryText= 'Total Number of Selected: ' + SelectedCount +'&nbsp; Student' +'<br> Total cost is: &nbsp;' + totalCost + 'Birr';
 
 document.getElementById('summerytext').innerHTML=summeryText;
 
@@ -722,9 +703,24 @@ $('#selectedcount').text('Total number of Random Selected:' + SelectedCou)
 
   });
 */
- 
-            });
 
+//for creating second modal
+
+
+ 
+
+$('#serchschool').on('keyup',function(){
+
+
+var serchin=$(this).val();
+
+
+table.column(4).search(serchin).draw();
+
+});
+
+            });
+         
 
             const options = {
               AddisAbaba: [],
@@ -765,7 +761,7 @@ firstSelector.addEventListener("change", function() {
 var userInput=document.getElementById('username');
 
 
-userInput.addEventListener('change',function(){
+userInput.addEventListener('input',function(){
 
 
 var use=userInput.value;
@@ -786,7 +782,7 @@ var emailInput=document.getElementById('emailvalid');
 
 
 
-emailInput.addEventListener('change',function(){
+emailInput.addEventListener('input',function(){
   var em=emailInput.value;
 var regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -805,7 +801,7 @@ else{
 var phoneInput=document.getElementById('phonecount');
 
 
-phoneInput.addEventListener('change',function(){
+phoneInput.addEventListener('input',function(){
 
 
 
