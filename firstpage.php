@@ -50,6 +50,10 @@ $result=$conn->query($sql);
 }
 
 
+#imgpay{
+  width:200px;
+  height:200px;
+}
 }
 
 
@@ -94,6 +98,7 @@ $result=$conn->query($sql);
 }
 
 
+
 @keyframes horizontal {
   
 0%{
@@ -106,6 +111,10 @@ transform: translateX(0);
 
 }
 
+#imgpay{
+  width:120px;
+  height:120px;
+}
 
 
 }
@@ -115,7 +124,7 @@ body
    /* overflow:hidden;*/
 }
 .form-group{
- // margin-right:10px;
+  margin-right:10px;
 }
 
     body{
@@ -138,10 +147,7 @@ margin-bottom:10px;
    .selectedroo td{
   background-color: #ffeeba; /* Change the color as desired */
 }
-  .text-right
-  {
-    //text-align:right;
-  }
+
 
   select option:hover
 
@@ -163,7 +169,9 @@ background-color:white;
 
 .btn1:hover{
 background-color: #f8f8f8;
-box-shadow:0 2px 4px rgba(0,0,0,0.2);
+border-radius:10px;
+border-color:#ffff;
+box-shadow:0 2px 3px 1px #9932cc;
 cursor:pointer;
 
 }
@@ -432,7 +440,11 @@ else{
     </div>
   </div>
 </div>
-
+<div id="progress" class="d-flex justify-content-center align-items-center" style="display: none;">
+  <div class="spinner-border text-primary" role="status" style="display: none;">
+    <span class="hidden">Loading...</span>
+  </div>
+</div>
 <div class="modal" id="secondmodal" style="display:none;">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -441,23 +453,19 @@ else{
         <button type="button" class="btn-close" aria-label="Close" onclick="closemodel()" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
-      <div id="progressIndicator" class="d-flex justify-content-center align-items-center" style="display: none;">
-  <div class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
+     
 <div class="d-flex">
 
 
-<div class="container">
+<div class="container" id="santimpay">
         <button type="button" class="btn1">
-        <img src="santimpay.png" alt="image of santim pay" width="200" height="200">
+        <img src="santimpay.jpg" id="imgpay" alt="image of santim pay">
 </button>
 </div>
 
-<div class="container">
+<div class="container" id="paypal">
         <button type="button" class="btn1">
-        <img src="papal.png" alt="image of santim pay" width="200" height="200">
+        <img src="paypa.jpg" id="imgpay" alt="image of santim pay">
 </button>
 </div>
 
@@ -474,6 +482,44 @@ else{
 
 
 
+<div class="modal" id="confirmationmodal" style="display:none;">
+
+<div class="modal-dialog">
+<div class="modal-content">
+
+<div class="modal-header">
+
+<h4 class="modal-title">Your data is present</h4>
+<button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+
+</div>
+<div class="modal-body">
+
+<p>Do you want to update your data</p>
+</div>
+<div class="modal-footer">
+<div class="d-flex">
+
+<div class="container" id="confirm">
+<button type="button" class="btn btn-warning">Yes</button>
+</div>
+
+
+<div class="container"  id="unconfirm">
+<button type="button" class="btn btn-danger">No</button>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
 
 
 
@@ -720,7 +766,7 @@ $('#submitbutton').on('click',function(){
     table.$('tr.selectedroo').removeClass('selectedroo');
 
 
-var visiblerow=table.rows({ search: 'applied', page: 'current' }).nodes();
+var visiblerow=table.rows({ search: 'applied', page: 'all' }).nodes();
 
 
 selectedRows=$(visiblerow).slice(0,userInput);
@@ -1162,10 +1208,19 @@ var formData={
   phone:phone
 };
 
+$('#myform').on('submit', function(event) {
+    event.preventDefault(); 
+    // Prevent the default form submission behavior
+    document.getElementById('progress').style.display='block';
 
-var progreess= new bootstrap.Modal(document.getElementById('progressIndicator'));
+    setTimeout( function(){
 
-$('#progressIndicator').show();
+      form.submit();
+    },3000);
+  });
+//var progreess= new bootstrap.Modal(document.getElementById('progressIndicator'));
+
+
 
 $.ajax({
   
@@ -1173,16 +1228,54 @@ url:'submitdonate.php',
 type:'POST',
 data: formData,
 success:function(response){
-console.log(response);
+//window.alert(response);
+//console.log(response);
+
 
 
 $('#Mymodal').modal('hide');
+
+var  exisitingid=0;
+
+if(response.includes('Data Alearady exist')){
+
+  var matches=response.match(/(\d+)/);//extract the id from response
+  if(matches){
+    exisitingid=parseInt(matches[0]);
+    console.log(exisitingid);
+  }
+  $('#confirmationmodal').modal('show');
+
+  
+    $('#confirm').on('click',function(){
+      update();
+  });
+  $('#unconfirm').on('click',function(){
+
+
+
+    $('#confirmationmodal').modal('hide');
+    $('#secondmodal').modal('show');
+  });
+
+}
+else{
+ 
+
+  var matches=response.match(/(\d+)/);
+if(matches){
+  newid=parseInt(matches[0]);
+  console.log(newid);
+}
 
 
 var modale=new bootstrap.Modal(document.getElementById('secondmodal'));
 
 modale.show();
-$('#progressIndicator').modal('hide');
+
+}
+
+
 },
 error:function(xhr,status,error){
   console.log(error);
@@ -1192,13 +1285,67 @@ error:function(xhr,status,error){
 
 });
 
+//it is used to update function
+function update(){
+
+
+  $.ajax({
+url:'updatedoners.php',
+type:'POST',
+data:formData,
+success:function(response){
+console.log(response);
+
+$('#confirmationmodal').modal('hide');
+var modale=new bootstrap.Modal(document.getElementById('secondmodal'));
+
+modale.show();
+
+},
+error:function(xhr,status,error){
+console.log(error);
+}
+
+
+  });
+}
 
 }
 
 
 });
 
+$('#santimpay').on('click',function(){
 
+$.ajax({
+
+  url:'pay.php',
+  type:'POST',
+  success:function(response){
+console.log(response);
+  },
+  error:function(xhr,status,error){
+console.log(error);
+  },
+});
+
+});
+
+$('#paypal').on('click',function(){
+
+$.ajax({
+
+  url:'pay.php',
+  type:'POST',
+  success:function(response){
+console.log(response);
+  },
+  error:function(xhr,status,error){
+console.log(error);
+  },
+});
+
+});
 
 });
 
