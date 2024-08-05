@@ -12,25 +12,29 @@ I am a passionate software developer with several years of experience in develop
 - Description: Developed a robust e-commerce platform using Laravel, providing features such as product management, shopping cart functionality, payment integration, and user authentication.
 - Technologies: Laravel, MySQL, HTML, CSS, JavaScript
 
-### Project 2: Native PHP Blogging System
-- Description: Created a blogging system from scratch using native PHP, allowing users to create, read, update, and delete blog posts. Implemented features such as user authentication, comments, and a responsive UI.
-- Technologies: PHP, MySQL, HTML, CSS, JavaScript
+### Project 2: Flutter-eTemari mobile application
+- Description: Created Mobile application for eTemari Website,enable student access quize quation online and offline ,and integrating with gemmini ai for student support
+- Technologies: PHP, MySQL, dart,flutter 
 
-### Project 3: Full-Stack Web Application
-- Description: Developed a full-stack web application for a client, involving frontend development using HTML, CSS, and JavaScript, and backend development using Laravel. Implemented features such as user management, data visualization, and API integration.
-- Technologies: Laravel, MySQL, HTML, CSS, JavaScript
+### Project 3: Full-Stack football player webapplication 
+- Description: Developed a full-stack web application for a client, involving frontend development using HTML, CSS, and JavaScript,React js and backend development using Node express. Implemented features such as user management, data visualization, and API integration,enabling the client read ,update ,add and delate football players.
+- Technologies: Node express, MySQL, HTML, CSS,React js and Bootstrap frame work
 
-### Project 4: Flutter Mobile Application
-- Description: Built a cross-platform mobile application using Flutter, providing users with a seamless and engaging user experience. Implemented features such as user authentication, data storage, and integration with backend APIs.
-- Technologies: Flutter, Dart, RESTful APIs
+### Project 4: full Stack e-Temari sponsershitp
+- Description: his sponsorship website allows students to apply for sponsorships. Sponsors from any country can search students by criteria like age, region, address, and school, then randomly select applicants to sponsor, This platform provides an efficient way for students to find sponsorships and for sponsors to discover and support deserving applicants.
+- Technologies:Bootstrap,Html,csss,Javascript,Jquery and php
 
 ## Skills
 
 - Laravel
 - PHP (Native)
+- React js
+- React Next.js
+- Node Express
 - HTML
 - CSS
 - JavaScript
+- Bootstrap
 - MySQL
 - Full-stack development
 - Flutter
@@ -40,5 +44,5 @@ I am a passionate software developer with several years of experience in develop
 ## Contact
 
 Feel free to reach out to me if you have any questions or would like to collaborate on a project. You can contact me via email at [muboxmuhammed86@gmail.com](mubemuhammed0985@gmail.com) or  [LinkedIn].
-
+Http://www.mubox.nigest11.com
 Thank you for visiting my portfolio!
