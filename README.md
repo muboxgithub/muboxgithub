@@ -1,6 +1,6 @@
 # My Portfolia
 
-Welcome to my software developer portfolio! This repository showcases my work as a software developer, highlighting my skills and expertise in Laravel, native PHP, full-stack development, and Flutter.
+Welcome to my software developer portfolio! This repository showcases my work as a software developer, highlighting my skills and expertise in React js,Node express Laravel, native PHP, full-stack development, and Flutter.
 
 ## About Me
 
@@ -10,11 +10,11 @@ I am a passionate software developer with several years of experience in develop
 
 ### Project 1:  Full-Stack Football Player Web Application
 - Description: Developed a full-stack web application for a client, involving frontend development using React, HTML, CSS, and JavaScript, and backend development using Node Express. Implemented features such as user management, data visualization, and API integration, enabling the client to read, update, add, and delete football players.
-- Technologies: Laravel, MySQL, HTML, CSS, JavaScript
+- Technologies: React js,Node Express, MySQL, HTML, CSS, and Bootstrap
 
 ### Project 2: Flutter-eTemari mobile application
 - Description:  Created a mobile application for the eTemari website using Flutter and Dart, enabling students to access quizzes online and offline, and integrating with Gemini AI for student support.
-- Technologies: Node Express, MySQL, HTML, CSS, React, and Bootstrap framework
+- Technologies: Dart,Flutter,Rest full api php.
 
 ### Project 3: E-commerce Platform
 - Description: Developed a robust e-commerce platform using React and Laravel, providing features such as product management, shopping cart functionality, payment integration, and user authentication.
@@ -22,7 +22,7 @@ I am a passionate software developer with several years of experience in develop
   
 ### Project 4: Full-Stack E-Temari Sponsorship Platform
 - Description: This sponsorship website allows students to apply for sponsorships. Sponsors from any country can search for students by criteria like age, region, address, and school, then randomly select applicants to sponsor. This platform provides an efficient way for students to find sponsorships and for sponsors to discover and support deserving applicants.
-- Technologies:React, Node Express, Bootstrap, HTML, CSS, JavaScript, jQuery, PHP
+- Technologies:Bootstrap, HTML, CSS, JavaScript, jQuery and PHP
 
 ## Skills
 
