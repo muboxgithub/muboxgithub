@@ -22,7 +22,7 @@ I am a passionate software developer with several years of experience in develop
   
 ### Project 4: Full-Stack E-Temari Sponsorship Platform
 - Description: This sponsorship website allows students to apply for sponsorships. Sponsors from any country can search for students by criteria like age, region, address, and school, then randomly select applicants to sponsor. This platform provides an efficient way for students to find sponsorships and for sponsors to discover and support deserving applicants.
-- Technologies:Bootstrap, HTML, CSS, JavaScript, jQuery and PHP
+- Technologies:Bootstrap, HTML, CSS, JavaScript, jQuery,ajax and PHP
 
 ## Skills
 
