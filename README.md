@@ -1,6 +1,6 @@
 # My Portfolia
 
-Welcome to my software developer portfolio! This repository showcases my work as a software developer, highlighting my skills and expertise in React js,Node express Laravel, native PHP, full-stack development, and Flutter.
+Welcome to my software developer portfolio! This repository showcases my work as a software developer, highlighting my skills and expertise in React js,Node express Laravel, native PHP, full-stack development, and Flutter with Rest api Node js,php and Laravel.
 
 ## About Me
 
