@@ -4,7 +4,7 @@ Welcome to my software developer portfolio! This repository showcases my work as
 
 ## About Me
 
-I am a passionate software developer with several years of experience in developing web applications using Laravel and native PHP. I have a strong understanding of software development principles, design patterns, and best practices. Additionally, I have expertise in full-stack development, allowing me to handle both frontend and backend development tasks effectively. Moreover, I have experience in mobile app development using Flutter
+I am a passionate software developer with several years of experience in developing web applications using Laravel and native PHP. I have a strong understanding of software development principles, design patterns, and best practices. Additionally, I have expertise in full-stack development, allowing me to handle both frontend and backend development tasks effectively. Moreover, I have experience in mobile app development using Flutter dart.
 
 ## Projects
 
